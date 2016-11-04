@@ -16,7 +16,7 @@ function playSound(isCorrectAnswer) {
 }
 
 /********************************* Draw  grey, green and blue trash Containers  ************************/
-//Draw each container image according to it's coordinates
+//Draw each container image according to it's coordinates.
 function drawTrashContainers() {
      var image1 = new Image;
      var image2 = new Image;
@@ -31,30 +31,30 @@ function drawTrashContainers() {
 }
 
 /************** Determine in which container is the trash ******************************************/
-//Compare trash element coordinats(x,y) with containers coordinates to check if it is inside 
+//Compare trash element coordinats(x,y) with containers coordinates to check if it is inside. 
 function inWichContainer(x, y){
     var container='';
     
     if (x >= Number(settings.GREY_CONTAINER_X) && x <= (Number(settings.GREY_CONTAINER_X) + Number(settings.CONTAINER_WIDTH)) &&
         y >= Number(settings.GREY_CONTAINER_Y) && y <= (Number(settings.GREY_CONTAINER_Y) + (Number(settings.CONTAINER_HEIGHT)/3)))
     {
-        // Trash is in the grey container
+        // Trash is in the grey container.
         container = 'grey';
     }
     else if (x >= Number(settings.GREEN_CONTAINER_X) && x <= (Number(settings.GREEN_CONTAINER_X) + Number(settings.CONTAINER_WIDTH)) && y >= Number(settings.GREEN_CONTAINER_Y) && y <= (Number(settings.GREEN_CONTAINER_Y) + (Number(settings.CONTAINER_HEIGHT)/3)))
     {
-        // Trash is in the green container
+        // Trash is in the green container.
         container = 'green';
     }
     else if (x >= Number(settings.BLUE_CONTAINER_X) && x <= (Number(settings.BLUE_CONTAINER_X) + Number(settings.CONTAINER_WIDTH)) 
     && y >= Number(settings.BLUE_CONTAINER_Y) && y <= (Number(settings.BLUE_CONTAINER_Y) + (Number(settings.CONTAINER_HEIGHT)/3)))
     {
-        // Trash is in the blue container
+        // Trash is in the blue container.
         container = 'blue';
     }
     else
     {
-        // Trash is still out containers
+        // Trash is still out containers.
         container = 'out';
     }
             
@@ -88,7 +88,7 @@ var trashElements = {
     incrementX : 0,
     incrementY : 0,
     imageIndex : 0,
-    // Array of trash element images
+    // Array of trash element images.
     trashElementsSrs : [
         {'url' : 'src/trash/Umbrella.png', 'container' : 'grey'},
         {'url' : 'src/trash/box.png', 'container' : 'blue'},
@@ -97,7 +97,7 @@ var trashElements = {
         {'url' : 'src/trash/notebook.png', 'container' : 'blue'}
     ],
     
-    // Draw trash element in it's position 
+    // Draw trash element in it's position. 
     drawTrashElement : function() {
         var image = new Image;
         
@@ -105,7 +105,7 @@ var trashElements = {
         game.ctx.drawImage(image,this.x,this.y);
     },
     
-    // If trash element still outside any container upate it's position according to arrow keys.
+    // If trash element still outside all containers, upate it's position according to arrow keys.
     // Otherwise play suitable sound and and update score and get another trash element from trash element array.   
     updateTrashElement : function() {
         var container = inWichContainer(this.x, this.y);
@@ -140,7 +140,7 @@ var trashElements = {
 }
 
 /*************************************** Update game *************************************/
-//Clear canvas and draw it again to reflect changes in score and trash element 
+//Clear canvas and draw it again to reflect changes in score and trash element. 
 function updateGame() {
     game.ctx.clearRect(0, 0, Number(settings.CANVAS_WIDTH), Number(settings.CANVAS_HEIGHT));
     drawTrashContainers();
@@ -159,9 +159,9 @@ function updateGame() {
 
 /**************************** Start game ***********************************/
 // Prepare canvas 
-// Draw containers and score and trash elements
-// Add EventListener to get user's keyboard input 
-// update game
+// Draw containers and score and trash elements.
+// Add EventListener to get user's keyboard input. 
+// setInterval to update game evry 0.2 second. 
 game = {
     canvas : document.getElementById("canvas"),
     ctx:canvas.getContext("2d"),
@@ -170,7 +170,7 @@ game = {
         drawTrashContainers();
         score.drawScore();
         trashElements.drawTrashElement();
-        this.interval = setInterval(updateGame, 20);
+        this.interval = setInterval(updateGame, 200);
 
         window.addEventListener('keydown', function (e) {
                 game.key = e.keyCode;

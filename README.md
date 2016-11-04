@@ -1,5 +1,6 @@
 Trash Sorting Game
-the goal of the game is to sort trash by moving them to the suitable container according to its type.
+the goal of the game is to sort trash by moving them to the suitable 
+ container according to its type.
 1. Papers and cartoons have to be put in the blue container.
 2. Organic trash has to be put in the green container.
 3. the rest has to be put in the grey container.

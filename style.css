@@ -1,0 +1,6 @@
+canvas{
+  background-image: url(src/backGround.png);
+  border:1px solid #d3d3d3;
+  width: 700px;
+  height: 400px;
+}
